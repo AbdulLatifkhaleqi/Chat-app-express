@@ -4,9 +4,5 @@ export interface IUser {
   password: string;
   bio?: string;
   image?: string;
-}
-
-export interface ILoginUser {
-  email: string;
-  password: string;
+  comparePassword(candidatePassword: string): Promise<boolean>;
 }
