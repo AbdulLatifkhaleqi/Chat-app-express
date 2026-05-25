@@ -13,8 +13,7 @@ app.use(express.json({ limit: "2mb" }));
 
 app.use(cors());
 
-app.use("/api/v1/auth", AuthRoutes);
-
+app.use("/api/auth", AuthRoutes);
 app.use(notFound);
 
 app.use(globalErrorHandler);

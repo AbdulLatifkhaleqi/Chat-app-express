@@ -32,8 +32,8 @@ const registerUser = async (payload: IUser) => {
 const loginUser = async (payload: ILoginUser) => {
   const user = await AuthRepository.findUserByEmail(payload.email);
 
-  if (!user || !(await user.comparePassword(user.password))) {
-    throw new AppError(404, "User not found");
+  if (!user || !(await user.comparePassword(payload.password))) {
+    throw new AppError(404, "Please enter valid email and pasword.");
   }
 
   const token = generateToken({
