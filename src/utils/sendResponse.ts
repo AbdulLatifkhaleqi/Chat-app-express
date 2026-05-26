@@ -4,8 +4,8 @@ interface IResponse<T> {
   statusCode: number;
   success: boolean;
   message: string;
-  token: string;
-  data?: T;
+  token?: string;
+  data: T;
 }
 
 export const sendResponse = <T>(res: Response, payload: IResponse<T>) => {

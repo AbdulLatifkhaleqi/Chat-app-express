@@ -6,7 +6,7 @@ export type UserDocument = HydratedDocument<IUser>;
 
 const userSchema = new mongoose.Schema<IUser>(
   {
-    name: {
+    fullName: {
       type: String,
       required: true,
       trim: true,

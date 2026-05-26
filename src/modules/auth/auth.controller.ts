@@ -33,7 +33,28 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////
+////////////////// login user.
+const updateProfile = async (req: any, res: Response) => {
+  const userId = req.user.id;
+
+  const updatedUser = await AuthService.updateProfile(
+    userId,
+    req.body,
+    req.file,
+  );
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "Login successful",
+    data: updatedUser,
+  });
+};
+
 export const AuthController = {
   registerUser,
   loginUser,
+  updateProfile,
 };
